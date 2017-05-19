@@ -3,6 +3,7 @@ var webpack = require('webpack')
 
 module.exports = {
   entry: './src/main.js',
+  target: 'electron',
   output: {
     path: path.resolve(__dirname, './dist'),
     publicPath: '/dist/',

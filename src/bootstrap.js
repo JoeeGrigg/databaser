@@ -8,3 +8,4 @@ Vue.use(VueRouter)
 window.Vue = Vue
 window.Router = Router
 window.Store = Store
+window.Event = new Vue();
