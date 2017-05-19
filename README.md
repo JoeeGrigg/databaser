@@ -8,9 +8,8 @@ A cross platform database management tool.
 # install dependencies
 npm install
 
-# serve with hot reload at localhost:8080
-npm run dev
+# Run the app
+npm start
 
-# build for production with minification
-npm run build
-```
+# serve with hot reload at localhost:8080 (Electron functionality lost! This still needs setting up to work.)
+npm run dev
