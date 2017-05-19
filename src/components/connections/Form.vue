@@ -56,6 +56,12 @@ export default {
     // If UUID passed in
     if (this.uuid) {
 
+      let connection = null;
+      Storage.get('connections.json').then(data => {
+        connection = data.filter((x)=>{ return x.uuid == this.uuid })[0];
+        Object.assign(this.connection, connection);
+      });
+
     } else {
 
       this.connection.uuid = UUID()
@@ -108,7 +114,9 @@ export default {
       }).then(() => {
 
         // Redirect to list when finished
-        this.$router.push('/connections', view => (location.reload()))
+        setTimeout(() => {
+          this.$router.push('/connections')
+        }, 100);
 
       })
 

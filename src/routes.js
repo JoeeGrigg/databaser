@@ -13,6 +13,14 @@ let routes = [
   {
     path: '/connections/new',
     component: require('./views/connections/New.vue')
+  },
+  {
+    path: '/connections/edit/:uuid',
+    component: require('./views/connections/Edit.vue')
+  },
+  {
+    path: '/connections/connect/:uuid',
+    component: require('./views/connections/Connect.vue')
   }
 
 ]
