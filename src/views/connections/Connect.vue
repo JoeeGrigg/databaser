@@ -1,6 +1,17 @@
 <template>
   <div>
-    <UIHeader title="Connecting..."></UIHeader>
+    <UIHeader title="Connecting...">
+      <template slot="left">
+        <div class="actions_breadcrumbs">
+          <button class="button">Server</button>
+          <button class="button">Database</button>
+          <button class="button">Table</button>
+        </div>
+      </template>
+      <template slot="right">
+        <button class="button">Refresh</button>
+      </template>
+    </UIHeader>
     {{ store.connectionUUID }}
   </div>
 </template>

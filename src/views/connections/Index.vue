@@ -1,8 +1,11 @@
 <template>
   <div>
-    <UIHeader title="Connections"></UIHeader>
+    <UIHeader title="Connections" :hasHistory="false" :hasSidebarToggles="false">
+      <template slot="left">
+        <router-link to="/connections/new" tag="button" class="button">New Connection</router-link>
+      </template>
+    </UIHeader>
     <UIBody>
-      <router-link to="/connections/new">New Connection</router-link>
       <ConnectionList></ConnectionList>
     </UIBody>
   </div>
