@@ -1,5 +1,5 @@
 import bootstrap from './bootstrap'
-import { remote } from 'electron';
+import { remote } from 'electron'
 
 new Vue({
   router: Router,

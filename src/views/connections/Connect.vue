@@ -1,18 +1,21 @@
 <template>
   <div>
-    <UIHeader title="Connecting...">
+    <UIHeader title="Connecting..." :hasHistory="false" :hasSidebarToggles="false">
       <template slot="left">
-        <div class="actions_breadcrumbs">
-          <button class="button">Server</button>
-          <button class="button">Database</button>
-          <button class="button">Table</button>
-        </div>
-      </template>
-      <template slot="right">
-        <button class="button">Refresh</button>
+        <button class="button" @click="cancel">Cancel</button>
       </template>
     </UIHeader>
-    {{ store.connectionUUID }}
+
+    <UIBody>
+      <form @submit.prevent="connect">
+        <div>
+          <label for="connection-password">Password</lable>
+          <input type="password" id="connection-password" v-model="password"/>
+        </div>
+        <button type="submit" class="button">Save</button>
+      </form>
+    </UIBody>
+
   </div>
 </template>
 
@@ -20,6 +23,7 @@
 import UIHeader from './../../components/ui/Header.vue'
 import UIBody from './../../components/ui/Body.vue'
 import Storage from 'electron-storage'
+import db from './../../modules/DB.js'
 
 export default {
 
@@ -27,7 +31,7 @@ export default {
 
   data () {
     return {
-      showingPasswordBox: false,
+      password: '',
       store: Store
     }
   },
@@ -49,7 +53,23 @@ export default {
 
   methods: {
 
+    cancel() {
+      delete this.store.connectionUUID
+      delete this.store.connectionUUID
+      this.$router.push('/connections')
+    },
+
     connect() {
+
+      this.store.DB = new db({
+        engine: this.store.connection.engine,
+        host: this.store.connection.host,
+        port: this.store.connection.port,
+        database: this.store.connection.database,
+        username: this.store.connection.username,
+        password: this.password
+      })
+
     }
 
   }

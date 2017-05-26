@@ -5,6 +5,13 @@
       <input type="text" id="connection-uuid" v-model="connection.uuid" disabled/>
     </div>
     <div>
+      <label for="connection-engine">Engine</lable>
+      <select id="connection-engine" v-model="connection.engine" required>
+        <option value="" selected disabled>Please select an engine...</option>
+        <option value="postgres">PostgreSQL</option>
+      </select>
+    </div>
+    <div>
       <label for="connection-nickname">Nickname</lable>
       <input type="text" id="connection-nickname" v-model="connection.nickname" required/>
     </div>
@@ -14,7 +21,7 @@
     </div>
     <div>
       <label for="connection-port">Port</lable>
-      <input type="text" id="connection-port" v-model="connection.port" required/>
+      <input type="number" id="connection-port" v-model="connection.port" required/>
     </div>
     <div>
       <label for="connection-database">Database</lable>
@@ -24,7 +31,7 @@
       <label for="connection-username">Username</lable>
       <input type="text" id="connection-username" v-model="connection.username" required/>
     </div>
-    <button type="submit">Save</button>
+    <button type="submit" class="button">Save</button>
   </form>
 </template>
 
@@ -43,6 +50,7 @@ export default {
       connection: {
         uuid: '',
         nickname: '',
+        engine: '',
         host: '',
         port: '',
         database: '',
