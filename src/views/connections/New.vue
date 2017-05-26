@@ -1,18 +1,21 @@
 <template>
   <div>
     <UIHeader title="New Connection"></UIHeader>
-    <router-link to="/connections">Cancel</router-link>
-    <ConnectionForm></ConnectionForm>
+    <UIBody>
+      <router-link to="/connections">Cancel</router-link>
+      <ConnectionForm></ConnectionForm>
+    </UIBody>
   </div>
 </template>
 
 <script>
 import UIHeader from './../../components/ui/Header.vue'
+import UIBody from './../../components/ui/Body.vue'
 import ConnectionForm from './../../components/connections/Form.vue'
 
 export default {
 
-  components: { UIHeader, ConnectionForm },
+  components: { UIHeader, UIBody, ConnectionForm },
 
   data () {
     return {

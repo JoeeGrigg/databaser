@@ -1,0 +1,21 @@
+.app_header {
+
+  // Base Styles
+  padding: .5rem;
+  background: #dcdcdc;
+
+  // Display all items in a row
+  display: flex;
+  flex-direction: row;
+  & * { margin-right: .5rem; }
+  & *:last-child { margin-right: 0; }
+
+  // Make draggable
+  -webkit-app-region: drag
+
+}
+
+.connection-status {
+  flex: 1;
+  -webkit-app-region: drag;
+}

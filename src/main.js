@@ -6,7 +6,11 @@ new Vue({
   el: '#app',
 
   created() {
-    Event.$on('closeApp', () => remote.getCurrentWindow().close())
+    Event.$on('app-close', () => remote.getCurrentWindow().close())
+    Event.$on('app-maximize', () => remote.getCurrentWindow().maximize())
+    Event.$on('app-minimize', () => remote.getCurrentWindow().minimize())
+    Event.$on('app-back', () => this.$router.go(-1))
+    Event.$on('app-forward', () => this.$router.go(1))
   }
 
 })
