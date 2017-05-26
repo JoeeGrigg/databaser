@@ -1,12 +1,15 @@
 <template>
-  <ul>
-    <li v-for="connection in connections">
-      <h2>{{ connection.nickname }}</h2>
-      <ul>
-        <li><router-link :to="'/connections/connect/'+connection.uuid">Connect</router-link></li>
-        <li><router-link :to="'/connections/edit/'+connection.uuid">Edit</router-link></li>
-        <li><a href="#" @click="deleteConnection(connection.uuid)">Delete</a></li>
-      </ul>
+  <ul class="connection-list">
+    <li class="connection" v-for="connection in connections">
+      <div class="connection_info">
+        <h2>{{ connection.nickname }}</h2>
+        <span>{{ connection.host }}</span>
+      </div>
+      <div class="actions_button-group">
+        <router-link :to="'/connections/connect/'+connection.uuid" tag="button" class="button">Connect</router-link>
+        <router-link :to="'/connections/edit/'+connection.uuid" tag="button" class="button">Edit</router-link>
+        <button href="#" @click="deleteConnection(connection.uuid)" class="button">Delete</button>
+      </div>
   </li>
   </ul>
 </template>

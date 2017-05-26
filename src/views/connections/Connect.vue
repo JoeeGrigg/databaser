@@ -40,10 +40,9 @@ export default {
     // Find the connection info
     let connection = null
     Storage.get('connections.json').then(data => {
-      connection = data.filter((x)=>{ return x.uuid == this.uuid })[0];
-      Object.assign(this.store.connection, connection);
-    }).then(() => {
-      console.log('Connection:', connection)
+      connection = data.filter((x)=>{ return x.uuid == this.store.connectionUUID })[0]
+      this.store.connection = {}
+      Object.assign(this.store.connection, connection)
     })
 
   },
@@ -51,15 +50,6 @@ export default {
   methods: {
 
     connect() {
-      // this.store.DB = knex({
-      //   client: this.store.connection.client,
-      //   connection: {
-      //     host: this.store.connection.host,
-      //     database: this.store.connection.database,
-      //     username: this.store.connection.username,
-      //     password: this.store.connection.password
-      //   }
-      // })
     }
 
   }

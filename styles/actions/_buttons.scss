@@ -27,13 +27,14 @@ $breadcrumb-arrow-length: 10px;
 
 .actions_button-group {
 
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
   .button {
 
     // Display button groups inline
-    display: inline-block;
     margin: 0;
-    margin-left: -4px;
-    &:first-of-type { margin-left: 0; }
 
     // Remove right border from all except last
     &:not(:last-of-type) { border-right-width: 0; }
