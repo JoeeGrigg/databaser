@@ -1,35 +1,27 @@
 <template>
   <form @submit.prevent="save">
-    <div>
-      <label for="connection-uuid">UUID</lable>
-      <input type="text" id="connection-uuid" v-model="connection.uuid" disabled/>
-    </div>
-    <div>
-      <label for="connection-engine">Engine</lable>
-      <select id="connection-engine" v-model="connection.engine" required>
+    <div class="form_row">
+      <label for="connection-nickname">Nickname</label>
+      <input type="text" id="connection-nickname" v-model="connection.nickname" class="input form_row-flex" required/>
+      <label for="connection-engine">Engine</label>
+      <select id="connection-engine" v-model="connection.engine" class="input" required>
         <option value="" selected disabled>Please select an engine...</option>
         <option value="postgres">PostgreSQL</option>
       </select>
     </div>
-    <div>
-      <label for="connection-nickname">Nickname</lable>
-      <input type="text" id="connection-nickname" v-model="connection.nickname" required/>
+    <div class="form_row">
+      <label for="connection-host">Host</label>
+      <input type="text" id="connection-host" v-model="connection.host" class="input form_row-flex" required/>
+      <label for="connection-port">Port</label>
+      <input type="number" id="connection-port" v-model="connection.port" class="input" required/>
     </div>
-    <div>
-      <label for="connection-host">Host</lable>
-      <input type="text" id="connection-host" v-model="connection.host" required/>
+    <div class="form_row">
+      <label for="connection-database">Database</label>
+      <input type="text" id="connection-database" v-model="connection.database" class="input form_row-flex" required/>
     </div>
-    <div>
-      <label for="connection-port">Port</lable>
-      <input type="number" id="connection-port" v-model="connection.port" required/>
-    </div>
-    <div>
-      <label for="connection-database">Database</lable>
-      <input type="text" id="connection-database" v-model="connection.database" required/>
-    </div>
-    <div>
-      <label for="connection-username">Username</lable>
-      <input type="text" id="connection-username" v-model="connection.username" required/>
+    <div class="form_row">
+      <label for="connection-username">Username</label>
+      <input type="text" id="connection-username" v-model="connection.username" class="input form_row-flex" required/>
     </div>
     <button type="submit" class="button">Save</button>
   </form>

@@ -1,18 +1,10 @@
-$button-padding: .5rem;
-$button-colour: #f7f7f7;
-$button-colour-hover: darken(#f7f7f7, 5%);
-$button-border-radius: 3px;
-$button-border-colour: darken(#f7f7f7, 25%);;
-$button-border-width: 1px;
-$breadcrumb-arrow-length: 10px;
-
 .button {
 
   box-sizing: border-box;
-  border: $button-border-width solid $button-border-colour;
-  background: $button-colour;
-  padding: $button-padding;
-  border-radius: $button-border-radius;
+  border: $input-border-width solid $input-border-colour;
+  background: $input-colour;
+  padding: $input-padding;
+  border-radius: $input-border-radius;
   font-weight: bold;
   cursor: pointer;
   outline: none;
@@ -20,7 +12,7 @@ $breadcrumb-arrow-length: 10px;
   -webkit-app-region: no-drag;
 
   &:hover:enabled {
-    background: $button-colour-hover;
+    background: $input-colour-hover;
   }
 
 }
@@ -42,12 +34,12 @@ $breadcrumb-arrow-length: 10px;
     // Curve edges
     border-radius: 0;
     &:first-of-type {
-      border-top-left-radius: $button-border-radius;
-      border-bottom-left-radius: $button-border-radius;
+      border-top-left-radius: $input-border-radius;
+      border-bottom-left-radius: $input-border-radius;
     }
     &:last-of-type {
-      border-top-right-radius: $button-border-radius;
-      border-bottom-right-radius: $button-border-radius;
+      border-top-right-radius: $input-border-radius;
+      border-bottom-right-radius: $input-border-radius;
     }
 
   }
@@ -68,7 +60,7 @@ $breadcrumb-arrow-length: 10px;
     &:not(:first-of-type) {
 
       // Make space for arrow
-      padding-left: calc(#{$button-padding} + #{$breadcrumb-arrow-length});
+      padding-left: calc(#{$input-padding} + #{$breadcrumb-arrow-length});
 
       // Remove left border
       border-left: none;
@@ -86,7 +78,7 @@ $breadcrumb-arrow-length: 10px;
 
         // Set size of arrow
         height: 100%;
-        width: calc(#{$breadcrumb-arrow-length} - #{$button-border-width});
+        width: calc(#{$breadcrumb-arrow-length} - #{$input-border-width});
 	      position: absolute;
 
         // Set pointer & cursor events
@@ -105,10 +97,10 @@ $breadcrumb-arrow-length: 10px;
       }
 
       &:before {
-        background: $button-border-colour;
-        top: -$button-border-width;
+        background: $input-border-colour;
+        top: -$input-border-width;
         left: 100%;
-        height: calc(100% + #{$button-border-width * 2});
+        height: calc(100% + #{$input-border-width * 2});
         width: $breadcrumb-arrow-length;
       }
 

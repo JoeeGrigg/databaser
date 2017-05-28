@@ -1,0 +1,29 @@
+.form_row {
+
+  label, input, select, button {
+    display: block;
+  }
+
+  *:not(:last-child) {
+    margin-right: .5rem;
+  }
+
+  display: flex;
+  align-items: center;
+  margin-bottom: .5rem;
+
+  &-flex {
+    flex: 1;
+  }
+
+  input {
+    padding: $input-padding;
+    background: $input-colour;
+    border: $input-border-width solid $input-border-colour;
+  }
+
+  label {
+    font-weight: bold;
+  }
+
+}
