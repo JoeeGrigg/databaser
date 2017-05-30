@@ -1,6 +1,8 @@
 import bootstrap from './bootstrap'
 import { remote } from 'electron'
 
+require("./../styles/style.scss");
+
 new Vue({
   router: Router,
   el: '#app',
