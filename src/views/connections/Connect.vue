@@ -1,6 +1,6 @@
 <template>
   <div>
-    <UIHeader title="Connecting..." :hasHistory="false" :hasSidebarToggles="false">
+    <UIHeader :title="connectionStatus" :hasHistory="false" :hasSidebarToggles="false">
       <template slot="left">
         <button class="button" @click="cancel">Cancel</button>
       </template>
@@ -32,6 +32,8 @@ export default {
   data () {
     return {
       password: '',
+      connectionStatus: 'Please enter a password',
+      connecting: false,
       store: Store
     }
   },
@@ -53,21 +55,34 @@ export default {
 
   methods: {
 
+    removeStoreInfo() {
+      delete this.store.connectionUUID
+      delete this.store.connection
+    },
+
     cancel() {
-      delete this.store.connectionUUID
-      delete this.store.connectionUUID
+      this.removeStoreInfo()
       this.$router.push('/connections')
     },
 
     connect() {
 
-      this.store.DB = new db({
+      this.connectionStatus = 'Connecting...'
+
+      new db({
         engine: this.store.connection.engine,
         host: this.store.connection.host,
         port: this.store.connection.port,
         database: this.store.connection.database,
         username: this.store.connection.username,
         password: this.password
+      }).then(res => {
+        this.store.DB = res
+        this.$router.push('/server')
+      }).catch(err => {
+        this.removeStoreInfo()
+        this.$router.push('/connections')
+        console.log('Connection Error:', err)
       })
 
     }

@@ -21,6 +21,10 @@ let routes = [
   {
     path: '/connections/connect/:uuid',
     component: require('./views/connections/Connect.vue')
+  },
+  {
+    path: '/server',
+    component: require('./views/server/Index.vue')
   }
 
 ]
