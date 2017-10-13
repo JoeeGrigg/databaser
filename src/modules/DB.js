@@ -6,11 +6,7 @@ export default class db {
 
     return new Promise((resolve, reject) => {
 
-      this.supportedEngines = {
-        postgres: 'postgres'
-      }
       this.connection = config
-      this.engine = config.engine
 
       // Create Connection
       this.connect().then(res => {
@@ -28,21 +24,13 @@ export default class db {
 
     return new Promise((resolve, reject) => {
 
-      let client
-
-      switch(this.engine) {
-
-        case this.supportedEngines.postgres:
-          client = new pg.Pool({
-            host: this.connection.host,
-            port: this.connection.port,
-            database: this.connection.database,
-            user: this.connection.username,
-            password: this.connection.password
-          })
-          break
-
-      }
+      let client = new pg.Pool({
+        host: this.connection.host,
+        port: this.connection.port,
+        database: this.connection.database,
+        user: this.connection.username,
+        password: this.connection.password
+      })
 
       this.client = client
 
@@ -61,17 +49,11 @@ export default class db {
 
     return new Promise((resolve, reject) => {
 
-      switch(this.engine) {
-
-        case this.supportedEngines.postgres:
-          this.query(`SELECT table_schema as schema, table_name as name FROM information_schema.tables WHERE table_schema='public'`).then(res => {
-            resolve(res)
-          }).catch(err => {
-            reject(err)
-          })
-          break
-
-      }
+      this.query(`SELECT table_schema as schema, table_name as name FROM information_schema.tables WHERE table_schema='public'`).then(res => {
+        resolve(res)
+      }).catch(err => {
+        reject(err)
+      })
 
     })
 
@@ -82,18 +64,12 @@ export default class db {
 
     return new Promise((resolve, reject) => {
 
-      switch(this.engine) {
-
-        case this.supportedEngines.postgres:
-          this.client.query(sql).then(res => {
-            resolve(res.rows)
-          }).catch(err => {
-            console.log(err)
-            reject(err)
-          })
-          break
-
-      }
+      this.client.query(sql).then(res => {
+        resolve(res.rows)
+      }).catch(err => {
+        console.log(err)
+        reject(err)
+      })
 
     })
 

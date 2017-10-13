@@ -1,6 +1,6 @@
 # Databaser
 
-A cross platform database management tool.
+A cross platform postgres database management tool.
 
 ## Development Setup
 

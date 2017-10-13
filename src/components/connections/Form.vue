@@ -3,11 +3,6 @@
     <div class="form_row">
       <label for="connection-nickname">Nickname</label>
       <input type="text" id="connection-nickname" v-model="connection.nickname" class="input form_row-flex" required/>
-      <label for="connection-engine">Engine</label>
-      <select id="connection-engine" v-model="connection.engine" class="input" required>
-        <option value="" selected disabled>Please select an engine...</option>
-        <option value="postgres">PostgreSQL</option>
-      </select>
     </div>
     <div class="form_row">
       <label for="connection-host">Host</label>
@@ -42,7 +37,6 @@ export default {
       connection: {
         uuid: '',
         nickname: '',
-        engine: '',
         host: '',
         port: '',
         database: '',

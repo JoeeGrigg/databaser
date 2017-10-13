@@ -12,7 +12,7 @@
           <label for="connection-password">Password</lable>
           <input type="password" id="connection-password" v-model="password"/>
         </div>
-        <button type="submit" class="button">Save</button>
+        <button type="submit" class="button">Connect</button>
       </form>
     </UIBody>
 
@@ -70,7 +70,6 @@ export default {
       this.connectionStatus = 'Connecting...'
 
       new db({
-        engine: this.store.connection.engine,
         host: this.store.connection.host,
         port: this.store.connection.port,
         database: this.store.connection.database,

@@ -1,6 +1,6 @@
 {
   "name": "databaser",
-  "description": "A cross platform database management tool.",
+  "description": "A cross platform postgres database management tool.",
   "version": "1.0.0",
   "author": "Joe Grigg <account@joegrigg.com>",
   "main": "main.js",
